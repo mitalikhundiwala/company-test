@@ -12,47 +12,8 @@ svg {
     width: 110px;   
 }
 
-section {
-}
-
 .container {
-    text-align: center;
-    min-height: 90px;
     padding: 20px 0;
-}
-
-table {
-    width: 500px;
+    width: 600px;
     margin: 0 auto;
-    border-collapse: collapse; 
-}
-
-.productH, .productCol {
-    width: 50%;
-    text-align: left;
-    padding: 8px 16px;
-}
-
-.priceH, .priceCol {
-    width: 12%;
-    text-align: left;
-    padding: 8px 16px;
-}
-
-.qtyH, .qtyCol {
-    width: 14%;
-    text-align: left;
-    padding: 8px 16px;
-}
-
-.costH, .costCol {
-    width: 12%;
-    text-align: left;
-    padding: 8px 16px;
-}
-
-.actionCol {
-    width: 12%;
-    text-align: left;
-    padding: 8px 16px;
 }

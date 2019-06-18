@@ -1,0 +1,35 @@
+.basket {
+    
+    table {
+        border-collapse: collapse;
+    }
+
+    tr {
+        &.basket-item {
+            &:nth-child(even) {
+                td:not(:last-child) {
+                    background-color: #dddddd;
+                }
+            }
+        }
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px 16px;
+    }
+
+    th {
+        border-bottom: 1px solid;
+        padding-bottom: 0;
+    }
+
+    .row-subtotal,
+    .row-vat {
+        .col-summary-label {
+            text-align: left;
+            color: gray;
+        }
+    }
+}
