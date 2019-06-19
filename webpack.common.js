@@ -11,13 +11,11 @@ module.exports = {
     output: {
         filename: './[name].bundle.js'
     },
-    mode: 'development',
     resolve: { extensions: ['.js', '.ts'] },
     devServer: {
         contentBase: path.join(__dirname, './dist/'),
         port: 9000
     },
-    devtool: 'source-map',
     module: {
         rules: [
             {
