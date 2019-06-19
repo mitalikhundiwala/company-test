@@ -1,7 +1,10 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var package = require('./package.json');
-var path = require('path');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+
+const package = require('./package.json');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -20,7 +23,24 @@ module.exports = {
         rules: [
             {
                 test: /\.(s*)css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            config: {
+                                path: __dirname + '/postcss.config.js'
+                            }
+                        }
+                    },
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.(png|jp(e*)g|svg)$/,
@@ -53,6 +73,10 @@ module.exports = {
             template: './src/index.html',
             filename: 'index.html' //relative to root of the application
         }),
-        new CopyWebpackPlugin([{ from: 'src/images', to: 'images' }])
+        new CopyWebpackPlugin([{ from: 'src/images', to: 'images' }]),
+        new MiniCssExtractPlugin({
+            filename: '[name].bundle.css',
+            chunkFilename: '[id].css'
+        })
     ]
 };

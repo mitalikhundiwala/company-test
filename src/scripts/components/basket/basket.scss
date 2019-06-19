@@ -17,7 +17,11 @@
     th,
     td {
         text-align: left;
-        padding: 8px 16px;
+        padding: 4px;
+
+        @media (min-width: 576px) {
+            padding: 8px 16px;
+        }
     }
 
     th {
