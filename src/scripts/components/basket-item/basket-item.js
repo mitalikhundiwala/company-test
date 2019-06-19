@@ -26,10 +26,9 @@ export class BasketItemComponent extends EventEmitter {
     }
 
     _onQtyChange(event) {
-        console.log('change qty');
         const qty = event.target.value;
         this.basketItem.qty = qty;
-        this.$el.find('.col-cost').html(this.basketItem.cost);
+        this.$el.find('.col-cost .cost-amount').html(`${this.basketItem.cost}`);
         this.emit('change', this.basketItem);
     }
 

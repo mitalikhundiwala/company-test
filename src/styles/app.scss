@@ -1,7 +1,21 @@
+html,
 body {
+    height: 100%;
     margin: 0;
     background-color: #f3f3f3;
-    font-family: sans-serif;
+    font-family: 'Noto Serif', serif;
+}
+
+.content-wrapper {
+    min-height: 100%;
+}
+
+.content {
+    padding-bottom: 50px;
+
+    > .container {
+        margin-top: 30px;
+    }
 }
 
 header {
@@ -11,11 +25,30 @@ header {
 
 .container {
     padding: 16px;
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
+
+    @media (min-width: 576px) {
+        max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+        max-width: 600px;
+    }
+
+    @media (min-width: 992px) {
+        max-width: 700px;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 750px;
+    }
 
     .title {
         padding: 0 16px;
+        font-size: 30px;
+        text-shadow: 1px 1px 3px rgba(#000000, 0.33);
+        margin: 20px 0;
     }
 
     .description {
@@ -25,4 +58,11 @@ header {
     .basket-container {
         padding: 32px 0;
     }
+}
+
+.footer {
+    background-color: #666666;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    margin-top: -50px;
 }
