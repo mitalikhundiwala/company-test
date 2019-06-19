@@ -19,6 +19,32 @@ export class BasketItemComponent extends EventEmitter {
             '.remove-item',
             this._onRemoveClick.bind(this)
         );
+
+        this.$el.on('click', '.quantity-up', () => {
+            const input = this.$el.find('input[type="number"]');
+            const max = input.attr('max');
+
+            const oldValue = parseFloat(input.val());
+            let newVal = oldValue;
+            if (oldValue < max) {
+                newVal = oldValue + 1;
+            }
+            this.$el.find('input.qty').val(newVal);
+            this.$el.find('input.qty').trigger('change');
+        });
+
+        this.$el.on('click', '.quantity-down', () => {
+            const input = this.$el.find('input[type="number"]');
+            const min = input.attr('min');
+
+            const oldValue = parseFloat(input.val());
+            let newVal = oldValue;
+            if (oldValue > min) {
+                newVal = oldValue - 1;
+            }
+            this.$el.find('input.qty').val(newVal);
+            this.$el.find('input.qty').trigger('change');
+        });
     }
 
     render() {

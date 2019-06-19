@@ -1,5 +1,14 @@
 <td class="col-product">{{product}}</td>
 <td class="col-price col-money">£<span class="price-amount">{{price}}</span></td>
-<td class="col-qty"><input class="qty" type="number" value="{{qty}}" min="1" max="10" /></td>
+<td class="col-qty">
+    <div class="quantity">
+        <input class="qty" type="number" value="{{qty}}" min="1" max="10" />
+        <div class="quantity-nav">
+            <div class="quantity-button quantity-up">+</div>
+            <div class="quantity-button quantity-down">-</div>
+        </div>
+    </div>
+</td>
 <td class="col-cost col-money">£<span class="cost-amount">{{cost}}</span></td>
-<td class="col-action"><a href="javascript:void(0)" class="remove-item"><img src="images/Trash 3.png" alt="Delete Button"/></a></td>
+<td class="col-action"><a href="javascript:void(0)" class="remove-item"><img src="images/Trash 3.png"
+            alt="Delete Button" /></a></td>

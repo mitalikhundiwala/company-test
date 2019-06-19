@@ -1,7 +1,7 @@
 .basket-item {
     .qty {
         width: 25px;
-        padding: 8px;
+        padding: 0 8px;
     }
 }
 
@@ -28,4 +28,67 @@
 
 .col-action {
     width: 1%;
+}
+
+.quantity {
+    position: relative;
+
+    input {
+        width: 45px;
+        height: 42px;
+        line-height: 1.65;
+        float: left;
+        display: block;
+        padding: 0;
+        margin: 0;
+        padding-left: 20px;
+        border: 1px solid #eee;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+    input:focus {
+        outline: 0;
+    }
+
+    .quantity-nav {
+        float: left;
+        position: relative;
+        height: 42px;
+    }
+
+    .quantity-button {
+        position: relative;
+        cursor: pointer;
+        border-left: 1px solid #eee;
+        width: 20px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.7;
+        transform: translateX(-100%);
+        user-select: none;
+        background-color: #999999;
+        color: #ffffff;
+
+        &.quantity-up {
+            position: absolute;
+            height: 50%;
+            top: 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        &.quantity-down {
+            position: absolute;
+            bottom: -1px;
+            height: 50%;
+        }
+    }
 }
