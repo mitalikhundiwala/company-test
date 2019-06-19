@@ -1,6 +1,6 @@
 export class BasketItem {
     get cost() {
-        return this.price * this.qty;
+        return parseFloat(this.price * this.qty).toFixed(2);
     }
 
     constructor(product, price, qty) {

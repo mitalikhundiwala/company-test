@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: #f3f3f3;
+    font-family: sans-serif;
 }
 
 header {
@@ -9,11 +10,28 @@ header {
 }
 
 svg {
-    width: 110px;   
+    width: 110px;
+}
+
+input:focus, 
+input:active {
+  outline: none;
 }
 
 .container {
-    padding: 20px 0;
+    padding: 16px;
     width: 600px;
     margin: 0 auto;
+
+    .title {
+        padding: 0 16px;
+    }
+
+    .description {
+        padding: 0 16px;
+    }
+
+    .basket-container {
+        padding: 32px 0;
+    }
 }

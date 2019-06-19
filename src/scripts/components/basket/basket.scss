@@ -1,5 +1,4 @@
 .basket {
-    
     table {
         border-collapse: collapse;
     }
@@ -29,7 +28,50 @@
     .row-vat {
         .col-summary-label {
             text-align: left;
-            color: gray;
+        }
+
+        td {
+            color: #999999;
+        }
+    }
+
+    .row-total {
+        font-weight: 600;
+        td {
+            padding: 32px 16px 16px;
+        }
+    }
+
+    .row-subtotal {
+        td {
+            padding: 32px 16px 8px;
+        }
+    }
+
+    .row-vat {
+        td {
+            padding: 0px 16px;
+        }
+    }
+
+    .buy-now-container {
+        float: right;
+        margin-right: 80px;
+        margin-top: 24px;
+
+        button {
+            padding: 10px 24px;
+            color: white;
+            background-color: #040065;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+
+            &:disabled {
+                background-color: #999999;
+                cursor: unset;
+            }
         }
     }
 }

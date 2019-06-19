@@ -1,16 +1,17 @@
 export class Basket {
     get subTotal() {
-        return this.basketItems.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue.cost;
-        }, 0);
+        return parseFloat(this.basketItems.reduce((accumulator, currentValue) => {
+
+            return accumulator + Number(currentValue.cost);
+        }, 0)).toFixed(2);
     }
 
     get totalCost() {
-        return this.subTotal + this.vat;
+        return parseFloat(Number(this.subTotal) + Number(this.vat)).toFixed(2);
     }
 
     get vat() {
-        return this.subTotal * 0.2;
+        return parseFloat(this.subTotal * 0.2).toFixed(2);
     }
 
     constructor(basketItems) {

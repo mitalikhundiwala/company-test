@@ -12,14 +12,14 @@ export class BasketComponent {
         this.el = document.createElement('div');
         this.$el = $(this.el);
         this.$el.addClass('basket');
-
+        
         this.lineItems = this.basket.basketItems.map((datum) => {
             const basketItem = new BasketItemComponent(datum);
             basketItem.render();
             basketItem.on('change', (basketItem) => {
-                console.log('chnage item');
                 this.renderSummary();
             });
+            basketItem.on('remove', this._onRemoveBasketItem.bind(this));
 
             return basketItem;
         });
@@ -38,5 +38,16 @@ export class BasketComponent {
 
     renderSummary() {
         this.$el.find('tfoot').html(summaryTemplate(this.basket));
+    }
+
+    _onRemoveBasketItem(basketItem) {
+
+        const index = this.basket.basketItems.indexOf(basketItem);
+        this.basket.basketItems.splice(index, 1);
+        if (this.basket.basketItems.length === 0) {
+
+            this.$el.find('.btn-buy-now').prop('disabled', true);
+        }
+        this.renderSummary();
     }
 }

@@ -14,6 +14,11 @@ export class BasketItemComponent extends EventEmitter {
         this.$el.addClass('basket-item');
 
         this.$el.on('change.basketItem', '.qty', this._onQtyChange.bind(this));
+        this.$el.on(
+            'click.basketItem',
+            '.remove-item',
+            this._onRemoveClick.bind(this)
+        );
     }
 
     render() {
@@ -26,5 +31,14 @@ export class BasketItemComponent extends EventEmitter {
         this.basketItem.qty = qty;
         this.$el.find('.col-cost').html(this.basketItem.cost);
         this.emit('change', this.basketItem);
+    }
+
+    _onRemoveClick(event) {
+        event.preventDefault();
+        var del = confirm('Are you sure you want to remove this item?');
+        if (del == true) {
+            this.$el.remove();
+            this.emit('remove', this.basketItem);
+        }
     }
 }
